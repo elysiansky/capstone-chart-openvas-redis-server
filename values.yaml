@@ -108,9 +108,6 @@ tolerations: []
 affinity: {}
 
 redis-server:
-  env:
-    - name: PODSLEEP
-      value: 'no'
   replicas: 2
   image:
     repository: elysiansky/capstone-openvas-redis-server
