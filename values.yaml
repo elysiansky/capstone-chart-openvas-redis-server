@@ -4,20 +4,12 @@
 
 replicaCount: 1
 
-redis-server:
-  replicas: 2
-  image:
-    repository: elysiansky/capstone-chart-openvas-redis-server
-    tag: b2444b8-amd64
-  service:
-    type: ClusterIP
-  resources:
-    limits:
-      cpu: 100m
-      memory: 128Mi
-    requests:
-      cpu: 100m
-      memory: 128Mi
+image:
+  repository: elysiansky/capstone-openvas-redis-server
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: b2444b8-amd64
+
 
 imagePullSecrets: []
 nameOverride: ""
@@ -114,3 +106,21 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+redis-server:
+  env:
+    - name: PODSLEEP
+      value: 'no'
+  replicas: 2
+  image:
+    repository: elysiansky/capstone-openvas-redis-server
+    tag: b2444b8-amd64
+  service:
+    type: ClusterIP
+  resources:
+    limits:
+      cpu: 100m
+      memory: 128Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
