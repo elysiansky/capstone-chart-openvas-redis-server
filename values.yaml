@@ -121,3 +121,14 @@ redis-server:
     requests:
       cpu: 100m
       memory: 128Mi
+
+livenessProbe:
+  httpGet:
+    path: /  # Assuming this path works for your Redis health check
+    port: 6379  # Changed from http to 6379
+
+readinessProbe:
+  httpGet:
+    path: /  # Assuming this path works for your Redis health check
+    port: 6379  # Changed from http to 6379
+
