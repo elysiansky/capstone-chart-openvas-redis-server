@@ -8,7 +8,7 @@ image:
   repository: elysiansky/capstone-openvas-redis-server
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: a901b3a-amd64
+  tag: 1607709-amd64
 
 
 imagePullSecrets: []
@@ -111,7 +111,7 @@ redis-server:
   replicas: 2
   image:
     repository: elysiansky/capstone-openvas-redis-server
-    tag: a901b3a-amd64
+    tag: 1607709-amd64
   service:
     type: ClusterIP
   resources:
